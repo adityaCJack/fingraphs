@@ -6,7 +6,9 @@ import {
 } from "./types";
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:8100/",
+  }),
   reducerPath: "main",
   tagTypes: ["Kpis", "Products", "Transactions"],
   endpoints: (build) => ({
