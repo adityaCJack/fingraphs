@@ -13,6 +13,10 @@ import Product from "./models/Product.js";
 import Transaction from "./models/Transaction.js";
 import { kpis, products, transactions } from "./data/data.js";
 
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // frontend URI
+};
+
 /* CONFIGURATIONS */
 dotenv.config();
 const app = express();
@@ -22,7 +26,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors(corsOptions));
 
 /* ROUTES */
 app.use("/kpi", kpiRoutes);

@@ -7,7 +7,9 @@ import {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:8100/",
+    baseUrl:
+      import.meta.env.REACT_APP_BACKEND_URL ||
+      "https://fingraphs-api.onrender.com",
   }),
   reducerPath: "main",
   tagTypes: ["Kpis", "Products", "Transactions"],
